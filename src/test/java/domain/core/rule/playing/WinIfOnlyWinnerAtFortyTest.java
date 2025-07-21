@@ -23,7 +23,8 @@ class WinIfOnlyWinnerAtFortyTest {
         when(opponentScore.score()).thenReturn(ScoreValue.THIRTY);
         Playing updatedPlaying = new Playing(winnerScore, opponentScore);
         WinIfOnlyWinnerAtForty rule = new WinIfOnlyWinnerAtForty();
-        boolean result = rule.accept(null, updatedPlaying, winner);
+        Playing dummy = new Playing(winnerScore, opponentScore);
+        boolean result = rule.accept(dummy, updatedPlaying, winner);
         assertTrue(result);
     }
 
@@ -39,7 +40,8 @@ class WinIfOnlyWinnerAtFortyTest {
         when(opponentScore.score()).thenReturn(ScoreValue.FORTY);
         Playing updatedPlaying = new Playing(winnerScore, opponentScore);
         WinIfOnlyWinnerAtForty rule = new WinIfOnlyWinnerAtForty();
-        boolean result = rule.accept(null, updatedPlaying, winner);
+        Playing dummy = new Playing(winnerScore, opponentScore);
+        boolean result = rule.accept(dummy, updatedPlaying, winner);
         assertFalse(result);
     }
 
@@ -55,7 +57,8 @@ class WinIfOnlyWinnerAtFortyTest {
         when(opponentScore.score()).thenReturn(ScoreValue.FORTY);
         Playing updatedPlaying = new Playing(winnerScore, opponentScore);
         WinIfOnlyWinnerAtForty rule = new WinIfOnlyWinnerAtForty();
-        boolean result = rule.accept(null, updatedPlaying, winner);
+        Playing dummy = new Playing(winnerScore, opponentScore);
+        boolean result = rule.accept(dummy, updatedPlaying, winner);
         assertFalse(result);
     }
 
@@ -72,4 +75,3 @@ class WinIfOnlyWinnerAtFortyTest {
         assertEquals(winner, ((Win) result).winner());
     }
 }
-
